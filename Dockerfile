@@ -28,7 +28,7 @@ RUN rm sdk-tools-linux-4333796.zip
 WORKDIR /home/gradle
 
 # test
-USER root
+#USER root
 RUN set -o errexit -o nounset \
 	&& echo "Testing Gradle installation" \
 	&& gradle --version
