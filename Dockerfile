@@ -9,10 +9,13 @@ FROM gradle:4.10.1-jdk8
 USER root
 
 # install packages
-RUN apt-get install wget -y && \
-    apt-get install unzip -y
+RUN apt-get update && \
+    apt-get install wget -y && \
+    apt-get install unzip -y && \
+    apt-get install python-pip -y && \
+    pip install requests
 
-USER gradle
+USER root
 
 ENV ANDROID_HOME /home/gradle/android-sdk
 RUN mkdir /home/gradle/android-sdk
@@ -28,7 +31,6 @@ RUN rm sdk-tools-linux-4333796.zip
 WORKDIR /home/gradle
 
 # test
-#USER root
 RUN set -o errexit -o nounset \
 	&& echo "Testing Gradle installation" \
 	&& gradle --version
