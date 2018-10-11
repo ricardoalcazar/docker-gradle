@@ -1,7 +1,7 @@
 #
 # Gradle executable for GMA
 # Author: Ricardo Alcazar
-# Modified: 9/22/2018
+# Modified: 10/11/2018
 #
 
 FROM gradle:4.10.1-jdk8
@@ -15,7 +15,7 @@ RUN apt-get update && \
     apt-get install python-pip -y && \
     pip install requests
 
-USER root
+USER gradle
 
 ENV ANDROID_HOME /home/gradle/android-sdk
 RUN mkdir /home/gradle/android-sdk
