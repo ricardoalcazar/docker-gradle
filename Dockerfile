@@ -19,8 +19,17 @@ RUN apt-get update && \
     pip install requests && \
     gem install bundler fastlane
 
+
+# install sonar scanner
+ENV PATH="/opt/sonar/bin:${PATH}"
+RUN wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+RUN unzip sonar-scanner-cli-3.2.0.1227-linux.zip
+RUN mv sonar-scanner-3.2.0.1227-linux /opt/sonar
+RUN rm sonar-scanner-cli-3.2.0.1227-linux.zip
+
 USER gradle
 
+# install android sdk
 ENV ANDROID_HOME /home/gradle/android-sdk
 RUN mkdir /home/gradle/android-sdk
 WORKDIR /home/gradle/android-sdk
