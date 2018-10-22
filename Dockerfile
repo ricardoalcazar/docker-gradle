@@ -8,12 +8,16 @@ FROM gradle:4.10.1-jdk8
 
 USER root
 
+
 # install packages
 RUN apt-get update && \
     apt-get install wget -y && \
     apt-get install unzip -y && \
+    apt-get install ruby -y && \
+    apt-get install ruby-dev -y && \
     apt-get install python-pip -y && \
-    pip install requests
+    pip install requests && \
+    gem install bundler fastlane
 
 USER gradle
 
