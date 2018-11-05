@@ -17,6 +17,8 @@ RUN apt-get update && \
     apt-get install ruby-dev -y && \
     apt-get install python3 -y && \
     apt-get install python3-pip -y && \
+    apt-get install python-pip -y && \
+    pip install requests && \
     pip3 install requests && \
     gem install bundler fastlane
 
