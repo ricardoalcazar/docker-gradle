@@ -1,7 +1,7 @@
 #
 # Gradle executable for GMA
 # Author: Ricardo Alcazar
-# Modified: 10/11/2018
+# Modified: 11/13/2018
 #
 
 FROM gradle:4.10.1-jdk8
@@ -13,6 +13,7 @@ USER root
 RUN apt-get update && \
     apt-get install wget -y && \
     apt-get install unzip -y && \
+    apt-get install jq -y && \
     apt-get install ruby -y && \
     apt-get install ruby-dev -y && \
     apt-get install python3 -y && \
